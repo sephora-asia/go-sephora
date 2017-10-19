@@ -28,10 +28,8 @@ func (enc *Encoder) Encode(v interface{}) error {
 		field := val.Type().Field(i).Name
 		v := val.FieldByName(field)
 		p := v.InterfaceData()
-
-		// Get the value from the pointer add
 		b := printPtrString(p[1])
-
+		// Get the value from the pointer add
 		if i == 0 {
 			_, err := buffer.WriteString("\n")
 			if err != nil {
@@ -62,5 +60,11 @@ func (enc *Encoder) Encode(v interface{}) error {
 // Return string from pointer
 func printPtrString(ptr uintptr) string {
 	p := unsafe.Pointer(ptr)
-	return *(*string)(p)
+	// Return empty string for nil pointer
+	if p == nil {
+		return ""
+	} else {
+		return *(*string)(p)
+	}
+
 }
