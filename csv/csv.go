@@ -9,14 +9,15 @@ import (
 
 type Encoder struct {
 	// contains writer andcolumns number
-	w  io.Writer
-	e  error
-	le int
+	w   io.Writer
+	e   error
+	le  int
+	del string
 }
 
 // NewEncoder returns a new encoder that writes to w.
-func NewEncoder(w io.Writer, l int) *Encoder {
-	return &Encoder{w: w, le: l}
+func NewEncoder(w io.Writer, l int, delimiter string) *Encoder {
+	return &Encoder{w: w, le: l, del: delimiter}
 }
 
 func (enc *Encoder) Encode(v interface{}) error {
@@ -38,7 +39,7 @@ func (enc *Encoder) Encode(v interface{}) error {
 		}
 
 		if i > 0 {
-			_, err := buffer.WriteString(",")
+			_, err := buffer.WriteString(enc.del)
 			if err != nil {
 				return err
 			}
