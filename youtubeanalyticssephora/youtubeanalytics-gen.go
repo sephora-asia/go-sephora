@@ -1,13 +1,4 @@
-// Package youtubeanalytics provides access to the YouTube Analytics API.
-//
-// See https://developers.google.com/youtube/analytics
-//
-// Usage example:
-//
-//   import "google.golang.org/api/youtubeanalytics/v2"
-//   ...
-//   youtubeanalyticsService, err := youtubeanalytics.New(oauthHttpClient)
-package youtubeanalyticssephora // import "google.golang.org/api/youtubeanalytics/v2"
+package youtubeanalyticssephora
 
 import (
 	"bytes"
