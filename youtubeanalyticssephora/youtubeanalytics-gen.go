@@ -1919,11 +1919,12 @@ type ReportsQueryCall struct {
 }
 
 // Query: Retrieve your YouTube Analytics reports.
+
 func (r *ReportsService) Query(ids string, startDate string, endDate string, metrics string, dimensions string) *ReportsQueryCall {
 	c := &ReportsQueryCall{s: r.s, urlParams_: make(gensupport.URLParams)}
 	c.urlParams_.Set("ids", ids)
-	c.urlParams_.Set("start-date", startDate)
-	c.urlParams_.Set("end-date", endDate)
+	c.urlParams_.Set("startDate", startDate)
+	c.urlParams_.Set("endDate", endDate)
 	c.urlParams_.Set("metrics", metrics)
 	c.urlParams_.Set("dimensions", dimensions)
 	return c
