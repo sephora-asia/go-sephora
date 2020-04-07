@@ -11,3 +11,7 @@ echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc && source ~/.bashrc
 mkdir ~/go && echo "export GOPATH=~/go" >> ~/.bashrc && source ~/.bashrc
 
 ```
+
+## License
+
+License for each reimplementation of the open source Go libraries can be found in their respective folders.
